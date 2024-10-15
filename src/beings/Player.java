@@ -1,10 +1,16 @@
 package beings;
 
+import perks.Item;
 import structure.Board;
 import structure.TurnAction;
 import structure.Ui;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Player extends Being {
+
+    private final List<Item> inventory = new ArrayList<>();
 
     public Player(long maxHp, long attackDmg) {
         super("Player", maxHp, attackDmg);
@@ -19,7 +25,14 @@ public class Player extends Being {
     }
 
     public void useItem() {
+        Item item = Ui.openInventoryAndSelectItem(inventory);
+        if(item != null) {
+            item.use(this);
+        }
+    }
 
+    public void addItem(Item item) {
+        inventory.add(item);
     }
 
     @Override

@@ -8,7 +8,7 @@ public class Enemy extends Being {
     }
 
     public Enemy(long maxHp, long attackDmg) {
-        super("Beings.Enemy", maxHp, attackDmg);
+        super("Enemy", maxHp, attackDmg);
     }
 
     @Override

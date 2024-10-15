@@ -10,7 +10,6 @@ public class Game {
     Random random = new Random();
 
     private final Board board;
-    private int balance = 0;
 
     public Game() {
         board = new Board();
@@ -19,8 +18,8 @@ public class Game {
     public void play() {
         while(playRound()) {
             int goldGained = random.nextInt(6) + 5;
-            balance += goldGained;
-            Ui.signalNewBalance(balance, goldGained);
+            board.setMoney(board.getMoney() + goldGained);
+            Ui.signalNewBalance(board.getMoney(), goldGained);
 
             if(Ui.askOpenShop()) {
                 board.openShop();

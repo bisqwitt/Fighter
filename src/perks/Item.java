@@ -4,20 +4,28 @@ import beings.Being;
 
 public abstract class Item {
 
-    protected String name;
+    protected final String name;
+    protected final String abbreviation;
+    protected final String description;
     protected int cost;
     protected int amount;
 
-    public Item(String name, int cost, int amount) {
+    public Item(String name, String abbreviation, String description, int cost, int amount) {
         this.name = name;
+        this.abbreviation = abbreviation;
+        this.description = description;
         this.cost = cost;
         this.amount = amount;
     }
 
-    protected abstract void use(Being target);
+    public abstract void use(Being target);
 
     public String getName() {
         return name;
+    }
+
+    public String getAbbreviation() {
+        return abbreviation;
     }
 
     public int getCost() {
@@ -26,5 +34,9 @@ public abstract class Item {
 
     public int getAmount() {
         return amount;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }
